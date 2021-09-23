@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.WallUP" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.WallUP" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +12,34 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="colorPrimary">@color/purple_200</item>
+<!--        <item name="android:textColorSecondary">@color/gfgSecondary</item>-->
+    </style>
+
+    <style name="SearchEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">@dimen/font_small</item>
+<!--        <item name="android:fontFamily">@font/sanspro_semibold</item>-->
+        <item name="android:textColor">@color/purple_200</item>
+        <item name="android:background">@null</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:inputType">textVisiblePassword</item>
+        <item name="android:hint">Search</item>
+    </style>
+
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/spacing_medium_32dp</item>
+        <item name="cornerSizeTopLeft">@dimen/spacing_medium_32dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 </resources>

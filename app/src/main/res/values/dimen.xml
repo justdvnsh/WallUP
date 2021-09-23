@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing Dimensions -->
+    <dimen name="spacing_minimum_4dp">4dp</dimen>
+    <dimen name="spacing_too_small">6dp</dimen>
+    <dimen name="spacing_very_small_8dp">8dp</dimen>
+    <dimen name="spacing_small_up">12dp</dimen>
+    <dimen name="spacing_small_16dp">16dp</dimen>
+    <dimen name="spacing_normal_24dp">24dp</dimen>
+    <dimen name="spacing_medium_32dp">32dp</dimen>
+    <dimen name="spacing_large_48dp">48dp</dimen>
+    <dimen name="spacing_larger">56dp</dimen>
+    <dimen name="spacing_medium_large">34dp</dimen>
+
+    <!--    Size Dimension-->
+    <dimen name="size_too_small">14dp</dimen>
+    <dimen name="size_extreme_small">16dp</dimen>
+    <dimen name="size_very_small">18dp</dimen>
+    <dimen name="size_small">24dp</dimen>
+    <dimen name="size_normal">36dp</dimen>
+    <dimen name="size_medium">50dp</dimen>
+    <dimen name="size_large">100dp</dimen>
+
+
+    <!-- Font size -->
+    <dimen name="font_minimum">12sp</dimen>
+    <dimen name="font_very_small">14sp</dimen>
+    <dimen name="font_small">16sp</dimen>
+    <dimen name="font_normal">18sp</dimen>
+    <dimen name="font_normal_up">20sp</dimen>
+    <dimen name="font_medium">26sp</dimen>
+    <dimen name="font_large">28sp</dimen>
+    <dimen name="popular_article_guideline">50dp</dimen>
+
+
+    <!--Bottom Navigation Bar height-->
+    <dimen name="bottomNavigationHeight">56dp</dimen>
+</resources>

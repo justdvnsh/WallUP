@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Browse"
+        android:id="@+id/browseFragment2"
+        android:icon="@drawable/ic_baseline_explore_24" />
+
+    <item android:title="Downloaded"
+        android:id="@+id/downloadedFragment2"
+        android:icon="@drawable/ic_baseline_favorite_border_24" />
+
+    <item android:title="Settings"
+        android:id="@+id/settingsFragment2"
+        android:icon="@drawable/ic_baseline_graphic_eq_24" />
+</menu>
