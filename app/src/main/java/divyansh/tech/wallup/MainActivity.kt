@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.wallup.databinding.ActivityMainBinding
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(_binding.root)
         setupNavigation()
         setupStatusBar()
+        Timber.e("INSIDE MAIN ACTIVITY")
     }
 
     private fun setupNavigation() {

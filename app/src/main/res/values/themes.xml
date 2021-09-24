@@ -18,6 +18,7 @@
     <!-- User interest -->
     <style name="WelcomeHeading">
         <item name="android:textSize">@dimen/font_medium</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/metropolis_bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:text">Looking for high quality free wallpapers ?</item>
