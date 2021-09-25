@@ -19,61 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/searchHolder"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_margin="20dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        app:cardCornerRadius="@dimen/spacing_small_16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text">
-
-        <LinearLayout
-            android:id="@+id/constraintLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="@dimen/spacing_small_16dp"
-            android:background="@drawable/background_search"
-            android:orientation="horizontal"
-            android:padding="@dimen/spacing_very_small_8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/searchIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_search_icon" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/searchEditText"
-                style="@style/SearchEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/spacing_small_16dp"
-                android:layout_marginEnd="@dimen/spacing_small_16dp"
-                android:inputType="textVisiblePassword|textCapWords"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/searchIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Dynamic Programming" />
-
-        </LinearLayout>
-
-
-    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
@@ -85,44 +30,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchHolder">
+        app:layout_constraintTop_toBottomOf="@id/text">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/browseViewRv"
             android:layout_height="match_parent"
-            android:layout_width="match_parent">
-            <TextView
-                android:id="@+id/Wallpapers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="start"
-                android:text="Wallpapers"
-                android:textColor="@color/titleColor"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ScrollView
-                android:layout_height="0dp"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/Wallpapers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                >
-                <TextView
-                    android:id="@+id/resposne"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    app:layout_constraintTop_toBottomOf="@id/Wallpapers"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
-            </ScrollView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            />
 
     </com.google.android.material.card.MaterialCardView>
 

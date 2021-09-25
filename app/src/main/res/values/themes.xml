@@ -24,6 +24,20 @@
         <item name="android:text">Looking for high quality free wallpapers ?</item>
     </style>
 
+    <style name="SubHeading">
+        <item name="android:textSize">@dimen/font_very_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/metropolis_bold</item>
+        <item name="android:textColor">@color/articleTitle</item>
+    </style>
+
+    <style name="CategoriesTitle">
+        <item name="android:textSize">@dimen/font_normal_up</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/metropolis_bold</item>
+        <item name="android:textColor">@color/titleColor</item>
+    </style>
+
     <style name="BottomNavigationView" parent="Widget.Design.BottomNavigationView">
         <item name="android:background">@color/white</item>
         <item name="colorPrimary">@color/colorPrimary</item>

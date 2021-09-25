@@ -29,7 +29,6 @@
         <Constraint
             android:layout_height="60dp"
             android:layout_width="match_parent"
-            android:id="@+id/searchHolder"
             motion:layout_editor_absoluteX="0dp"
             motion:layout_editor_absoluteY="10dp"
             motion:layout_constraintTop_toTopOf="parent"
@@ -37,13 +36,13 @@
             android:layout_marginEnd="10dp"
             android:layout_marginTop="20dp" />
         <Constraint
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:id="@+id/card"
             motion:layout_editor_absoluteX="411dp"
             motion:layout_editor_absoluteY="344dp"
-            motion:layout_constraintTop_toBottomOf="@id/searchHolder"
+            motion:layout_constraintTop_toBottomOf="@id/text"
             motion:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="0dp" />
     </ConstraintSet>
 </MotionScene>
