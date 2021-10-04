@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.wallup.databinding.FragmentBrowseBinding
 import divyansh.tech.wallup.home.browse.epoxy.EpoxyBrowseController
@@ -39,11 +40,11 @@ class BrowseFragment: Fragment() {
 
     private fun setupRecyclerView() {
         _binding.browseViewRv.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = browseController.adapter
             browseController.spanCount = 2
-            (layoutManager as GridLayoutManager).spanSizeLookup =
-                browseController.spanSizeLookup
+//            (layoutManager as StaggeredGridLayoutManager).spanSizeLookup =
+//                browseController.spanSizeLookup
         }
     }
 

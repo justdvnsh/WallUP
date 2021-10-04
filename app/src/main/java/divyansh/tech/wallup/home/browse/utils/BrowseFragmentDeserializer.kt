@@ -15,7 +15,7 @@ class BrowseFragmentDeserializer {
             return try {
                 val list = ArrayList<Wallpapers>();
                 val jsoup = Jsoup.parse(response)
-                val wallpapers = jsoup?.getElementById("flow")?.select("ul")?.first()?.select("li")?.subList(0, 11)
+                val wallpapers = jsoup?.getElementById("flow")?.select("ul")?.first()?.select("li")
                 wallpapers?.forEach {
                     val wallpaper = Wallpapers(
                         wallpaperUrl = it.select("a")?.first()?.attr("href").toString(),

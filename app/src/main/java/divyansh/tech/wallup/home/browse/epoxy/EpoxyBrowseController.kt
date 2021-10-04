@@ -29,19 +29,12 @@ class EpoxyBrowseController(): TypedEpoxyController<ArrayList<BrowseResponseMode
             heading(model.heading)
             spanSizeOverride { totalSpanCount, _, _ ->  totalSpanCount}
         }
-        val list = ArrayList<EpoxyWallpapers_>()
-        (model.items as ArrayList<Wallpapers>).forEach {
-            val item = EpoxyWallpapers_()
-                .id(it.hashCode())
-                .imageUrl(it.imageUrl)
-            list.add(item)
-        }
 
-        carousel {
-            id(model.hashCode())
-            models(list)
-            padding(Carousel.Padding.dp(16, 8, 16, 8, 16))
-            spanSizeOverride { totalSpanCount, _, _ ->  totalSpanCount}
+        (model.items as ArrayList<Wallpapers>).forEach {
+            epoxyWallpapers {
+                id(it.imageUrl)
+                imageUrl(it.imageUrl)
+            }
         }
     }
 

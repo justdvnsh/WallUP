@@ -38,20 +38,20 @@ class BrowseViewModel @Inject constructor(
             }
             else _popularWallpapersLiveData.postValue(_list)
         }
-        repo.getCategories().collect {
-            if (it is Result.Success) {
-                _list.add(it.data as BrowseResponseModel)
-                _popularWallpapersLiveData.postValue(_list)
-            }
-            else _popularWallpapersLiveData.postValue(_list)
-        }
-        repo.getRecommended().collect {
-            if (it is Result.Success) {
-                _list.add(it.data as BrowseResponseModel)
-                _popularWallpapersLiveData.postValue(_list)
-            }
-            else _popularWallpapersLiveData.postValue(_list)
-        }
+//        repo.getCategories().collect {
+//            if (it is Result.Success) {
+//                _list.add(it.data as BrowseResponseModel)
+//                _popularWallpapersLiveData.postValue(_list)
+//            }
+//            else _popularWallpapersLiveData.postValue(_list)
+//        }
+//        repo.getRecommended().collect {
+//            if (it is Result.Success) {
+//                _list.add(it.data as BrowseResponseModel)
+//                _popularWallpapersLiveData.postValue(_list)
+//            }
+//            else _popularWallpapersLiveData.postValue(_list)
+//        }
     }
 
     enum class HOME_TYPES {
