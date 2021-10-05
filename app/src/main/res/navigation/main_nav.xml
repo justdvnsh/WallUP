@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/browseFragment2"
         android:name="divyansh.tech.wallup.home.browse.BrowseFragment"
-        android:label="BrowseFragment" />
+        android:label="BrowseFragment" >
+        <action
+            android:id="@+id/action_browseFragment2_to_wallpaperActivity"
+            app:destination="@id/wallpaperActivity" />
+    </fragment>
     <fragment
         android:id="@+id/downloadedFragment2"
         android:name="divyansh.tech.wallup.home.downloaded.DownloadedFragment"
@@ -16,4 +20,12 @@
         android:id="@+id/settingsFragment2"
         android:name="divyansh.tech.wallup.home.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <activity
+        android:id="@+id/wallpaperActivity"
+        android:name="divyansh.tech.wallup.Wallpaper.WallpaperActivity"
+        android:label="WallpaperActivity" >
+        <argument
+            android:name="wallpaper"
+            app:argType="string" />
+    </activity>
 </navigation>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WallUP</string>
+    <string name="wallpapers">Wallpapers</string>
+    <string name="set_as_wallpaper">Set as wallpaper</string>
 </resources>

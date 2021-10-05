@@ -5,10 +5,13 @@ import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.carousel
 import divyansh.tech.wallup.home.browse.BrowseViewModel
+import divyansh.tech.wallup.home.browse.callbacks.BrowseCallbacks
 import divyansh.tech.wallup.home.browse.datamodel.*
 import timber.log.Timber
 
-class EpoxyBrowseController(): TypedEpoxyController<ArrayList<BrowseResponseModel>>() {
+class EpoxyBrowseController(
+    private val callback: BrowseCallbacks
+): TypedEpoxyController<ArrayList<BrowseResponseModel>>() {
     override fun buildModels(data: ArrayList<BrowseResponseModel>?) {
         data?.let {
             Timber.e("BROWSE RESPONSE MODEL -> $it")
@@ -24,16 +27,12 @@ class EpoxyBrowseController(): TypedEpoxyController<ArrayList<BrowseResponseMode
     }
 
     private fun buildWallpapers(model: BrowseResponseModel) {
-        epoxyBrowseView {
-            id(model.hashCode())
-            heading(model.heading)
-            spanSizeOverride { totalSpanCount, _, _ ->  totalSpanCount}
-        }
-
         (model.items as ArrayList<Wallpapers>).forEach {
             epoxyWallpapers {
                 id(it.imageUrl)
                 imageUrl(it.imageUrl)
+                callback(callback)
+                spanSizeOverride { totalSpanCount, _, _ -> totalSpanCount/2 }
             }
         }
     }
