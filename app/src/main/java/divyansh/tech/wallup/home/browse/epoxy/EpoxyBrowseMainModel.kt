@@ -8,20 +8,22 @@ import com.airbnb.epoxy.EpoxyModelClass
 import divyansh.tech.wallup.BR
 
 import divyansh.tech.wallup.R
-import divyansh.tech.wallup.home.browse.callbacks.BrowseCallbacks
+import divyansh.tech.wallup.common.BrowseCallbacks
+import divyansh.tech.wallup.common.WallpaperCallbacks
+import divyansh.tech.wallup.home.browse.datamodel.Wallpapers
 
 @SuppressLint("NonConstantResourceId")
 @EpoxyModelClass(layout = R.layout.recycler_popular_wallpaper_item)
 abstract class EpoxyWallpapers(): DataBindingEpoxyModel() {
 
     @EpoxyAttribute
-    lateinit var imageUrl: String
+    lateinit var wallpaper: Wallpapers
 
     @EpoxyAttribute
-    lateinit var callback: BrowseCallbacks
+    lateinit var callback: WallpaperCallbacks
 
     override fun setDataBindingVariables(binding: ViewDataBinding) {
-        binding.setVariable(BR.imageUrl, imageUrl)
+        binding.setVariable(BR.wallpaper, wallpaper)
         binding.setVariable(BR.callback, callback)
     }
 }

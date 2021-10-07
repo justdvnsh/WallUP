@@ -20,7 +20,6 @@ class BrowseFragmentDeserializer {
                     val wallpaper = Wallpapers(
                         wallpaperUrl = it.select("a")?.first()?.attr("href").toString(),
                         imageUrl = it.select("img")?.first()?.attr("data-src").toString(),
-                        dataSet = it.select("img")?.first()?.attr("data-srcset").toString()
                     )
                     list.add(wallpaper)
                 }

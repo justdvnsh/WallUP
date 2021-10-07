@@ -1,12 +1,12 @@
 package divyansh.tech.wallup.home.browse.datamodel
 
 import divyansh.tech.wallup.home.browse.BrowseViewModel
+import java.io.Serializable
 
 data class Wallpapers(
     val wallpaperUrl: String,
-    val imageUrl: String,
-    val dataSet: String
-)
+    val imageUrl: String
+): Serializable
 
 data class Categories(
     val name: String,

@@ -1,12 +1,12 @@
 <layout xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="imageUrl"
-            type="String"
+            name="wallpaper"
+            type="divyansh.tech.wallup.home.browse.datamodel.Wallpapers"
             />
         <variable
             name="callback"
-            type="divyansh.tech.wallup.home.browse.callbacks.BrowseCallbacks"
+            type="divyansh.tech.wallup.common.BrowseCallbacks"
             />
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
-        android:onClick="@{() -> callback.onWallpaperClick(imageUrl)}"
+        android:onClick="@{() -> callback.onWallpaperClick(wallpaper)}"
         >
 
         <androidx.cardview.widget.CardView
@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                image="@{imageUrl}"/>
+                image="@{wallpaper.imageUrl}"/>
 
         </androidx.cardview.widget.CardView>
 

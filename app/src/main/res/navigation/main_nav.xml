@@ -9,8 +9,8 @@
         android:name="divyansh.tech.wallup.home.browse.BrowseFragment"
         android:label="BrowseFragment" >
         <action
-            android:id="@+id/action_browseFragment2_to_wallpaperActivity"
-            app:destination="@id/wallpaperActivity" />
+            android:id="@+id/action_browseFragment2_to_wallpaperDetailFragment"
+            app:destination="@id/wallpaperDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/downloadedFragment2"
@@ -20,12 +20,15 @@
         android:id="@+id/settingsFragment2"
         android:name="divyansh.tech.wallup.home.settings.SettingsFragment"
         android:label="SettingsFragment" />
-    <activity
-        android:id="@+id/wallpaperActivity"
-        android:name="divyansh.tech.wallup.Wallpaper.WallpaperActivity"
-        android:label="WallpaperActivity" >
+    <fragment
+        android:id="@+id/wallpaperDetailFragment"
+        android:name="divyansh.tech.wallup.home.wallpaperDetail.WallpaperDetailFragment"
+        android:label="WallpaperDetailFragment" >
         <argument
             android:name="wallpaper"
-            app:argType="string" />
-    </activity>
+            app:argType="divyansh.tech.wallup.home.browse.datamodel.Wallpapers" />
+        <action
+            android:id="@+id/action_wallpaperDetailFragment_self"
+            app:destination="@id/wallpaperDetailFragment" />
+    </fragment>
 </navigation>

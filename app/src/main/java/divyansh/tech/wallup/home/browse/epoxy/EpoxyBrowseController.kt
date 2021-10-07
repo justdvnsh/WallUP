@@ -1,11 +1,10 @@
 package divyansh.tech.wallup.home.browse.epoxy
 
 import com.airbnb.epoxy.Carousel
-import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.carousel
 import divyansh.tech.wallup.home.browse.BrowseViewModel
-import divyansh.tech.wallup.home.browse.callbacks.BrowseCallbacks
+import divyansh.tech.wallup.common.BrowseCallbacks
 import divyansh.tech.wallup.home.browse.datamodel.*
 import timber.log.Timber
 
@@ -30,7 +29,7 @@ class EpoxyBrowseController(
         (model.items as ArrayList<Wallpapers>).forEach {
             epoxyWallpapers {
                 id(it.imageUrl)
-                imageUrl(it.imageUrl)
+                wallpaper(it)
                 callback(callback)
                 spanSizeOverride { totalSpanCount, _, _ -> totalSpanCount/2 }
             }

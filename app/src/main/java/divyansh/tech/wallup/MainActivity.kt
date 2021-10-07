@@ -37,5 +37,13 @@ class MainActivity : AppCompatActivity() {
             _binding.mainBottomNavigation,
             navController
         )
+        navHostFragment.findNavController().addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id) {
+                R.id.browseFragment2 -> _binding.mainBottomNavigation.visibility = View.VISIBLE
+                R.id.downloadedFragment2 -> _binding.mainBottomNavigation.visibility = View.VISIBLE
+                R.id.settingsFragment2 -> _binding.mainBottomNavigation.visibility = View.VISIBLE
+                else -> _binding.mainBottomNavigation.visibility = View.GONE
+            }
+        }
     }
 }

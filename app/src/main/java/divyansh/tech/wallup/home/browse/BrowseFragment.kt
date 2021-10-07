@@ -8,13 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.daimajia.easing.linear.Linear
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.wallup.databinding.FragmentBrowseBinding
-import divyansh.tech.wallup.home.browse.callbacks.BrowseCallbacks
+import divyansh.tech.wallup.common.BrowseCallbacks
 import divyansh.tech.wallup.home.browse.epoxy.EpoxyBrowseController
 import divyansh.tech.wallup.utils.EventObserver
 import timber.log.Timber
