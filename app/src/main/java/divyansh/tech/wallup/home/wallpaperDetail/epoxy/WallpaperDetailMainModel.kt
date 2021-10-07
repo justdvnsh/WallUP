@@ -1,9 +1,12 @@
 package divyansh.tech.wallup.home.wallpaperDetail.epoxy
 
+import android.annotation.SuppressLint
+import android.content.Context
 import androidx.databinding.ViewDataBinding
-import com.airbnb.epoxy.DataBindingEpoxyModel
-import com.airbnb.epoxy.EpoxyAttribute
-import com.airbnb.epoxy.EpoxyModelClass
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.airbnb.epoxy.*
 import divyansh.tech.wallup.BR
 import divyansh.tech.wallup.R
 import divyansh.tech.wallup.home.wallpaperDetail.dataModels.Resolution
@@ -26,6 +29,14 @@ abstract class EpoxyResolutionItemModel: DataBindingEpoxyModel() {
 
     override fun setDataBindingVariables(binding: ViewDataBinding) {
         binding.setVariable(BR.res, resolution)
+    }
+}
+
+@SuppressLint("NonConstantResourceId")
+@ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
+class CategoryBackground(context: Context) : Carousel(context) {
+    override fun createLayoutManager(): RecyclerView.LayoutManager {
+        return StaggeredGridLayoutManager(3, GridLayoutManager.HORIZONTAL)
     }
 }
 

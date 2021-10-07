@@ -10,10 +10,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.daimajia.easing.linear.Linear
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.wallup.databinding.FragmentWallpaperDetailsBinding
+import divyansh.tech.wallup.home.wallpaperDetail.callbacks.WallpaperDetailCallbacks
 import divyansh.tech.wallup.home.wallpaperDetail.epoxy.EpoxyWallpaperDetailController
 import divyansh.tech.wallup.utils.EventObserver
 
@@ -28,7 +31,8 @@ class WallpaperDetailFragment: Fragment() {
     private val args by navArgs<WallpaperDetailFragmentArgs>()
 
     private val wallpaperDetailController by lazy {
-        EpoxyWallpaperDetailController()
+        val callback = WallpaperDetailCallbacks(viewModel)
+        EpoxyWallpaperDetailController(callback)
     }
 
     override fun onCreateView(
@@ -51,6 +55,7 @@ class WallpaperDetailFragment: Fragment() {
         binding.wallpaperDetailRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = wallpaperDetailController.adapter
+            wallpaperDetailController.spanCount = 3
         }
     }
 

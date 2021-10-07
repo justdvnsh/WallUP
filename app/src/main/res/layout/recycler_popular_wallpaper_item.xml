@@ -6,7 +6,7 @@
             />
         <variable
             name="callback"
-            type="divyansh.tech.wallup.common.BrowseCallbacks"
+            type="divyansh.tech.wallup.common.WallpaperCallbacks"
             />
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
