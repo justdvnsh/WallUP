@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,7 +46,8 @@ class BrowseFragment: Fragment() {
 
     private fun setupRecyclerView() {
         _binding.recyclerView.apply {
-            layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            (layoutManager as GridLayoutManager).spanSizeLookup = browseController.spanSizeLookup
             adapter = browseController.adapter
             browseController.spanCount = 2
         }
@@ -54,6 +56,7 @@ class BrowseFragment: Fragment() {
     private fun setupObservers() {
         Timber.e("INSIDE OBSERVERS -> ${viewModel.toString()}")
         viewModel.popularWallpapersLiveData.observe(viewLifecycleOwner, Observer {
+            Timber.e("DATA -> $it")
             browseController.setData(it)
         })
 

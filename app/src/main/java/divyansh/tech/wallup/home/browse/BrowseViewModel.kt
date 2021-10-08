@@ -31,30 +31,29 @@ class BrowseViewModel @Inject constructor(
 
     private fun getPopularWallpapers() = viewModelScope.launch(Dispatchers.IO) {
         Timber.e("INSIDE VIEWMODEL CALL")
+        repo.getPopularCategories().collect {
+            if (it is Result.Success) _list.add(it.data as BrowseResponseModel)
+            _popularWallpapersLiveData.postValue(_list)
+        }
+        repo.getFeaturedWallpaperAndHomePageData().collect {
+            if (it is Result.Success) _list.addAll(it.data as ArrayList<BrowseResponseModel>)
+            _popularWallpapersLiveData.postValue(_list)
+        }
         repo.getPopularWallpapers().collect {
             if (it is Result.Success) {
                 _list.add(it.data as BrowseResponseModel)
                 _popularWallpapersLiveData.postValue(_list)
             }
             else _popularWallpapersLiveData.postValue(_list)
+            }
         }
-//        repo.getCategories().collect {
-//            if (it is Result.Success) {
-//                _list.add(it.data as BrowseResponseModel)
-//                _popularWallpapersLiveData.postValue(_list)
-//            }
-//            else _popularWallpapersLiveData.postValue(_list)
-//        }
-//        repo.getRecommended().collect {
-//            if (it is Result.Success) {
-//                _list.add(it.data as BrowseResponseModel)
-//                _popularWallpapersLiveData.postValue(_list)
-//            }
-//            else _popularWallpapersLiveData.postValue(_list)
-//        }
-    }
 
     enum class HOME_TYPES {
-        POPULAR_WALLPAPERS, CATEGORIES, RECOMMENDED, COLORS
+        FEATURED_WALLPAPER,
+        POPULAR_WALLPAPERS,
+        FEATURED_CATEGORIES,
+        POPULAR_PEOPLE,
+        POPULAR_CHARACTERS,
+        POPULAR_COLLECTIONS
     }
 }

@@ -1,5 +1,6 @@
 package divyansh.tech.wallup.home.wallpaperDetail.source
 
+import divyansh.tech.wallup.home.wallpaperDetail.dataModels.Resolution
 import divyansh.tech.wallup.home.wallpaperDetail.utils.WallpaperDetailDeserializer
 import divyansh.tech.wallup.utils.Result
 import okhttp3.ResponseBody
@@ -24,6 +25,16 @@ class WallpaperDetailRemoteRepo @Inject constructor(
             Result.Error(e)
         }
     }
+
+//    suspend fun getWallpaperImage(url: String): Result<*> {
+//        return try {
+//            WallpaperDetailDeserializer.getWallpaper(
+//                url
+//            )
+//        } catch (e: Exception) {
+//            Result.Error(e)
+//        }
+//    }
 
     interface WallpaperDetailInterface {
         @GET

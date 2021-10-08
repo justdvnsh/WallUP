@@ -35,7 +35,7 @@
         <item name="android:textSize">@dimen/font_normal_up</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/metropolis_bold</item>
-        <item name="android:textColor">@color/titleColor</item>
+        <item name="android:textColor">@color/articleTitle</item>
     </style>
 
     <style name="BottomNavigationView" parent="Widget.Design.BottomNavigationView">

@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface BrowseDataSource {
 
+    suspend fun getFeaturedWallpaperAndHomePageData(): Flow<Result<*>>
     suspend fun getPopularWallpapers(): Flow<Result<*>>
-    suspend fun getCategories(): Flow<Result<*>>
-    suspend fun getRecommended(): Flow<Result<*>>
+    suspend fun getPopularCategories(): Flow<Result<*>>
 }

@@ -10,7 +10,15 @@ data class Wallpapers(
 
 data class Categories(
     val name: String,
-    val asset: Int
+    val imageUrl: String,
+    val categoryUrl: String,
+    val noOfWallpapers: String
+)
+
+data class PopularTags(
+    val name: String,
+    val url: String,
+    val noOfWallpapers: String
 )
 
 data class Colors(

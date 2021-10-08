@@ -2,11 +2,13 @@ package divyansh.tech.wallup.home.browse.source
 
 import divyansh.tech.wallup.home.browse.datamodel.BrowseResponseModel
 import divyansh.tech.wallup.home.browse.utils.BrowseFragmentDeserializer
+import divyansh.tech.wallup.utils.Constants
 import divyansh.tech.wallup.utils.Result
 import divyansh.tech.wallup.utils.customErrors.CouldNotParseException
 import okhttp3.ResponseBody
 import retrofit2.Retrofit
 import retrofit2.http.GET
+import retrofit2.http.Url
 import timber.log.Timber
 import java.lang.Exception
 import javax.inject.Inject
@@ -27,8 +29,34 @@ class BrowseRemoteRepository @Inject constructor(
         }
     }
 
+    suspend fun getFeaturedWallpaperAndHomePageData(): Result<*> {
+        return try {
+            val response = service.getHomePageData()
+            BrowseFragmentDeserializer.getHomePageData(response.string())
+        } catch (e: Exception) {
+            Result.Error(e)
+        }
+    }
+
+    suspend fun getPopularCategories(): Result<*> {
+        return try {
+            val response = service.getPopularCategories()
+            BrowseFragmentDeserializer.getPopularCategories(response.string())
+        } catch (e: Exception) {
+            Result.Error(e)
+        }
+    }
+
     interface BrowseWallpapersInterface {
         @GET("/")
+        suspend fun getHomePageData(): ResponseBody
+
+        @GET("/featured.php")
         suspend fun getPopularWallpapers(): ResponseBody
+
+        @GET
+        suspend fun getPopularCategories(
+            @Url url: String = Constants.WALL_ACCESS_BASE_URL
+        ): ResponseBody
     }
 }

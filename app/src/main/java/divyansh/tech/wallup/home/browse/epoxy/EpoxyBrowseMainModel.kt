@@ -10,6 +10,7 @@ import divyansh.tech.wallup.BR
 import divyansh.tech.wallup.R
 import divyansh.tech.wallup.common.BrowseCallbacks
 import divyansh.tech.wallup.common.WallpaperCallbacks
+import divyansh.tech.wallup.home.browse.datamodel.Categories
 import divyansh.tech.wallup.home.browse.datamodel.Wallpapers
 
 @SuppressLint("NonConstantResourceId")
@@ -45,14 +46,21 @@ abstract class EpoxyBrowseView(): DataBindingEpoxyModel() {
 abstract class EpoxyRecyclerCategory(): DataBindingEpoxyModel() {
 
     @EpoxyAttribute
-    lateinit var imageUrl: Integer
-
-    @EpoxyAttribute
-    lateinit var heading: String
+    lateinit var category: Categories
 
     override fun setDataBindingVariables(binding: ViewDataBinding) {
-        binding.setVariable(BR.imageUrl, imageUrl)
-        binding.setVariable(BR.heading, heading)
+        binding.setVariable(BR.category, category)
+    }
+}
+
+@EpoxyModelClass(layout = R.layout.recycler_item_featured_wallpaper)
+abstract class EpoxyFeaturedWallpaper(): DataBindingEpoxyModel() {
+
+    @EpoxyAttribute
+    lateinit var featuredWallpaper: Wallpapers
+
+    override fun setDataBindingVariables(binding: ViewDataBinding) {
+        binding.setVariable(BR.featuredWallpaper, featuredWallpaper)
     }
 }
 

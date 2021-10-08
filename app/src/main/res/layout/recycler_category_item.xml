@@ -4,17 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="heading"
-            type="String"
-            />
-        <variable
-            name="imageUrl"
-            type="Integer"
+            name="category"
+            type="divyansh.tech.wallup.home.browse.datamodel.Categories"
             />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="@dimen/spacing_very_small_8dp"
         >
 
         <com.google.android.material.card.MaterialCardView
@@ -24,8 +21,7 @@
             app:cardCornerRadius="@dimen/spacing_small_16dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/categoryName"
+            app:layout_constraintBottom_toBottomOf="parent"
             >
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -33,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:scaleType="centerCrop"
-                localImage="@{imageUrl}"
+                image='@{"https://wallpaperaccess.com"+""+category.imageUrl}'
                 />
 
         </com.google.android.material.card.MaterialCardView>
@@ -45,11 +41,25 @@
             android:gravity="center"
             tools:text = "Anime"
             style="@style/SubHeading"
-            android:layout_marginTop="@dimen/spacing_very_small_8dp"
-            android:text="@{heading}"
-            app:layout_constraintTop_toBottomOf="@id/categoryHolder"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/spacing_small_16dp"
+            android:text="@{category.name}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/categoryNumWallpapers"
+            app:layout_constraintStart_toEndOf="@id/categoryHolder"
+            />
+
+        <TextView
+            android:id="@+id/categoryNumWallpapers"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            tools:text = "110 Wallpapers"
+            style="@style/SubHeading"
+            android:layout_marginStart="@dimen/spacing_small_16dp"
+            android:text='@{category.noOfWallpapers + " " + "Wallpapers"}'
+            app:layout_constraintTop_toBottomOf="@id/categoryName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/categoryHolder"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

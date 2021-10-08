@@ -8,8 +8,13 @@ import javax.inject.Inject
 
 class BrowseDefaultRepository @Inject constructor(
     private val remoteRepo: BrowseRemoteRepository,
-    private val localRepo: BrowseLocalRepository
 ): BrowseDataSource {
+    override suspend fun getFeaturedWallpaperAndHomePageData(): Flow<Result<*>> {
+        return flow {
+            emit(remoteRepo.getFeaturedWallpaperAndHomePageData())
+        }
+    }
+
 
     override suspend fun getPopularWallpapers(): Flow<Result<*>> {
         return flow {
@@ -17,15 +22,9 @@ class BrowseDefaultRepository @Inject constructor(
         }
     }
 
-    override suspend fun getCategories(): Flow<Result<*>> {
+    override suspend fun getPopularCategories(): Flow<Result<*>> {
         return flow {
-            emit(localRepo.getAllCategories())
-        }
-    }
-
-    override suspend fun getRecommended(): Flow<Result<*>> {
-        return flow {
-            emit(localRepo.getAllRecommended())
+            emit(remoteRepo.getPopularCategories())
         }
     }
 }

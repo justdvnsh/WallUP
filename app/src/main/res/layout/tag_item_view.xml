@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="tag"
-            type="divyansh.tech.wallup.home.wallpaperDetail.dataModels.Tags"
+            type="divyansh.tech.wallup.home.browse.datamodel.PopularTags"
             />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_tag_res"
-        android:layout_margin="10dp">
+        android:layout_margin="@dimen/spacing_minimum_4dp">
 
         <TextView
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:text="@{tag.name}"
+            android:gravity="center"
             tools:text="Digital-background"
             style="@style/SubHeading"
             android:padding="20dp"
+            android:id="@+id/tagname"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

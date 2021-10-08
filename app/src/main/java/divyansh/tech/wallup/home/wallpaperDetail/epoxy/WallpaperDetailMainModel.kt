@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.airbnb.epoxy.*
 import divyansh.tech.wallup.BR
 import divyansh.tech.wallup.R
+import divyansh.tech.wallup.home.browse.datamodel.PopularTags
 import divyansh.tech.wallup.home.wallpaperDetail.dataModels.Resolution
 import divyansh.tech.wallup.home.wallpaperDetail.dataModels.Tags
 
 @EpoxyModelClass(layout = R.layout.tag_item_view)
 abstract class EpoxyTagItemModel: DataBindingEpoxyModel() {
     @EpoxyAttribute
-    lateinit var tag: Tags
+    lateinit var tag: PopularTags
 
     override fun setDataBindingVariables(binding: ViewDataBinding) {
         binding.setVariable(BR.tag, tag)
