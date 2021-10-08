@@ -1,32 +1,31 @@
 package divyansh.tech.wallup.home.wallpaperDetail
 
-import android.annotation.SuppressLint
-import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import android.webkit.JavascriptInterface
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.daimajia.easing.linear.Linear
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.wallup.databinding.FragmentWallpaperDetailsBinding
 import divyansh.tech.wallup.home.wallpaperDetail.callbacks.WallpaperDetailCallbacks
 import divyansh.tech.wallup.home.wallpaperDetail.epoxy.EpoxyWallpaperDetailController
-import divyansh.tech.wallup.home.wallpaperDetail.utils.WallpaperDetailDeserializer
 import divyansh.tech.wallup.utils.EventObserver
-import timber.log.Timber
+import java.io.File
+import java.io.FileOutputStream
+
 
 @AndroidEntryPoint
 class WallpaperDetailFragment: Fragment() {
@@ -37,15 +36,6 @@ class WallpaperDetailFragment: Fragment() {
     private val viewModel by viewModels<WallpaperDetailViewModel>()
 
     private val args by navArgs<WallpaperDetailFragmentArgs>()
-
-    inner class JavaScriptInterface(context: Context) {
-
-        @JavascriptInterface
-        fun showHTML(html: String) {
-            Timber.e("HTML DATA -> $html")
-            showImage(html)
-        }
-    }
 
     private val wallpaperDetailController by lazy {
         val callback = WallpaperDetailCallbacks(viewModel)
@@ -58,22 +48,43 @@ class WallpaperDetailFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWallpaperDetailsBinding.inflate(inflater, container, false)
-        binding.imageUrl = args.wallpaper.imageUrl
+        binding.imageUrl = args.url
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
         setupObservers()
+        setupImage()
     }
 
-    private fun setupRecyclerView() {
-        binding.wallpaperDetailRv.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = wallpaperDetailController.adapter
-            wallpaperDetailController.spanCount = 3
+    private fun setupImage() {
+        Glide.with(this)
+            .asBitmap()
+            .load(args.url)
+            .into(object: CustomTarget<Bitmap>(){
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    binding.imageBackground.setImageBitmap(resource)
+                    setupWallpaperButton(resource)
+                    setupSaveToGallery(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {}
+            })
+    }
+
+    private fun setupWallpaperButton(res: Bitmap) {
+        binding.setAsWallpaper.setOnClickListener {
+            // set wallpaper
         }
+    }
+
+    private fun setupSaveToGallery(res: Bitmap) {
+        MediaStore.Images.Media.insertImage(
+            requireActivity().contentResolver,
+            res,
+            "yourTitle" ,
+            "yourDescription");
     }
 
     private fun setupObservers() {
@@ -81,7 +92,6 @@ class WallpaperDetailFragment: Fragment() {
             viewLifecycleOwner,
             Observer {
                 wallpaperDetailController.setData(it)
-                setupWebView(it.res[0].url)
             }
         )
 
@@ -98,30 +108,5 @@ class WallpaperDetailFragment: Fragment() {
                 findNavController().navigate(it)
             }
         )
-    }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    private fun setupWebView(url: String) {
-        binding.webView.apply {
-            settings.javaScriptEnabled = true
-            addJavascriptInterface(JavaScriptInterface(requireContext()), "HtmlViewer")
-            webViewClient = object : WebViewClient() {
-                override fun onPageFinished(view: WebView?, url: String?) {
-                    super.onPageFinished(view, url)
-                    binding.webView.loadUrl("javascript:window.HtmlViewer.showHTML" +
-                            "('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>');")
-                }
-            }
-            loadUrl(url)
-        }
-    }
-
-    private fun showImage(html: String) {
-        viewModel.getWallpaperImage(html)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.getWallpaperData(args.wallpaper.wallpaperUrl)
     }
 }

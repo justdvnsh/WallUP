@@ -9,7 +9,6 @@ class BrowseCallbacks(
 ): WallpaperCallbacks {
 
     override fun onWallpaperClick(wallpaper: Wallpapers) {
-        val action = BrowseFragmentDirections.actionBrowseFragment2ToWallpaperDetailFragment(wallpaper)
-        viewModel.changeNavigation(action)
+        viewModel.getWallpaperDetails(wallpaper.wallpaperUrl)
     }
 }

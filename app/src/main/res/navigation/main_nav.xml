@@ -24,11 +24,11 @@
         android:id="@+id/wallpaperDetailFragment"
         android:name="divyansh.tech.wallup.home.wallpaperDetail.WallpaperDetailFragment"
         android:label="WallpaperDetailFragment" >
-        <argument
-            android:name="wallpaper"
-            app:argType="divyansh.tech.wallup.home.browse.datamodel.Wallpapers" />
         <action
             android:id="@+id/action_wallpaperDetailFragment_self"
             app:destination="@id/wallpaperDetailFragment" />
+        <argument
+            android:name="url"
+            app:argType="string" />
     </fragment>
 </navigation>

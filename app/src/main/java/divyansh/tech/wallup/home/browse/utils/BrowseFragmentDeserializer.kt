@@ -1,10 +1,7 @@
 package divyansh.tech.wallup.home.browse.utils
 
 import divyansh.tech.wallup.home.browse.BrowseViewModel
-import divyansh.tech.wallup.home.browse.datamodel.BrowseResponseModel
-import divyansh.tech.wallup.home.browse.datamodel.Categories
-import divyansh.tech.wallup.home.browse.datamodel.PopularTags
-import divyansh.tech.wallup.home.browse.datamodel.Wallpapers
+import divyansh.tech.wallup.home.browse.datamodel.*
 import divyansh.tech.wallup.utils.Result
 import divyansh.tech.wallup.utils.customErrors.CouldNotParseException
 import org.jsoup.Jsoup
@@ -124,6 +121,22 @@ class BrowseFragmentDeserializer {
                 Result.Success(model)
             } catch (e: Exception) {
                 Result.Error(CouldNotParseException("Something Went wrong"))
+            }
+        }
+
+        fun getWallpaperDetails(response: String): Result<WallpaperUrlRequestBody> {
+            return try {
+                val jsoup = Jsoup.parse(response)
+                val downloadLink = jsoup.getElementsByClass("btn btn-success btn-custom download-button")
+                val link = WallpaperUrlRequestBody(
+                    content_id = downloadLink.attr("data-id").toInt(),
+                    file_type = downloadLink.attr("data-type"),
+                    image_server = downloadLink.attr("data-server")
+                )
+                Timber.e("URL REQUEST BODY -> $link")
+                Result.Success(link)
+            } catch (e: Exception) {
+                Result.Error(CouldNotParseException("Something Went Wrong"))
             }
         }
     }

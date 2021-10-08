@@ -7,11 +7,8 @@ import divyansh.tech.wallup.common.CommonViewModel
 import divyansh.tech.wallup.home.browse.datamodel.BrowseResponseModel
 import divyansh.tech.wallup.home.browse.source.BrowseDataSource
 import divyansh.tech.wallup.utils.Result
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -46,7 +43,21 @@ class BrowseViewModel @Inject constructor(
             }
             else _popularWallpapersLiveData.postValue(_list)
             }
+    }
+
+    fun getWallpaperDetails(url: String)  = viewModelScope.launch(Dispatchers.IO) {
+        val response = repo.getWallpaperDetails(url)
+        response.collect {
+            if (it is Result.Success) {
+                Timber.e("URL IS HERE -> ${it.data}")
+                // launching in UI thread since event data cannot be set from background thread
+                GlobalScope.launch(Dispatchers.Main) {
+                    val action = BrowseFragmentDirections.actionBrowseFragment2ToWallpaperDetailFragment(it.data)
+                    changeNavigation(action)
+                }
+            } else Timber.e("ERROR -> $it")
         }
+    }
 
     enum class HOME_TYPES {
         FEATURED_WALLPAPER,

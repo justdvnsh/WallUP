@@ -11,7 +11,7 @@ class WallpaperDetailCallbacks(
 ): WallpaperCallbacks {
 
     override fun onWallpaperClick(wallpaper: Wallpapers) {
-        val action = WallpaperDetailFragmentDirections.actionWallpaperDetailFragmentSelf(wallpaper)
+        val action = WallpaperDetailFragmentDirections.actionWallpaperDetailFragmentSelf(wallpaper.imageUrl)
         viewModel.changeNavigation(action)
     }
 

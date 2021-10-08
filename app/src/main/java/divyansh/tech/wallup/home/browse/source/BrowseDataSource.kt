@@ -8,4 +8,5 @@ interface BrowseDataSource {
     suspend fun getFeaturedWallpaperAndHomePageData(): Flow<Result<*>>
     suspend fun getPopularWallpapers(): Flow<Result<*>>
     suspend fun getPopularCategories(): Flow<Result<*>>
+    suspend fun getWallpaperDetails(url: String): Flow<Result<String>>
 }
