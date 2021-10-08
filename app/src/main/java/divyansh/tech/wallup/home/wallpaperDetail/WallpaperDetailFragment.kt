@@ -1,15 +1,13 @@
 package divyansh.tech.wallup.home.wallpaperDetail
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -19,12 +17,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import dagger.hilt.android.AndroidEntryPoint
+import divyansh.tech.wallup.R
 import divyansh.tech.wallup.databinding.FragmentWallpaperDetailsBinding
 import divyansh.tech.wallup.home.wallpaperDetail.callbacks.WallpaperDetailCallbacks
 import divyansh.tech.wallup.home.wallpaperDetail.epoxy.EpoxyWallpaperDetailController
 import divyansh.tech.wallup.utils.EventObserver
-import java.io.File
-import java.io.FileOutputStream
 
 
 @AndroidEntryPoint
@@ -36,6 +33,7 @@ class WallpaperDetailFragment: Fragment() {
     private val viewModel by viewModels<WallpaperDetailViewModel>()
 
     private val args by navArgs<WallpaperDetailFragmentArgs>()
+    private lateinit var _dialog: AlertDialog
 
     private val wallpaperDetailController by lazy {
         val callback = WallpaperDetailCallbacks(viewModel)
@@ -54,8 +52,18 @@ class WallpaperDetailFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupDialog()
         setupObservers()
         setupImage()
+    }
+
+    private fun setupDialog() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
+        val view = requireActivity().layoutInflater.inflate(R.layout.loading_dialog, null)
+        builder.setView(view)
+        builder.setCancelable(false)
+        _dialog = builder.create()
+        _dialog.show()
     }
 
     private fun setupImage() {
@@ -64,6 +72,8 @@ class WallpaperDetailFragment: Fragment() {
             .load(args.url)
             .into(object: CustomTarget<Bitmap>(){
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    _dialog.dismiss()
+                    binding.rootView.visibility = View.VISIBLE
                     binding.imageBackground.setImageBitmap(resource)
                     setupWallpaperButton(resource)
                     setupSaveToGallery(resource)
@@ -80,11 +90,13 @@ class WallpaperDetailFragment: Fragment() {
     }
 
     private fun setupSaveToGallery(res: Bitmap) {
-        MediaStore.Images.Media.insertImage(
-            requireActivity().contentResolver,
-            res,
-            "yourTitle" ,
-            "yourDescription");
+        binding.saveToGallery.setOnClickListener {
+            MediaStore.Images.Media.insertImage(
+                requireActivity().contentResolver,
+                res,
+                "yourTitle" ,
+                "yourDescription");
+        }
     }
 
     private fun setupObservers() {

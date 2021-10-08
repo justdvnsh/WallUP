@@ -111,7 +111,7 @@ dependencies {
     implementation 'com.google.android:flexbox:2.0.1'
 
     //Lottie for Animation
-    implementation 'com.airbnb.android:lottie:3.7.0'
+    implementation 'com.airbnb.android:lottie:4.2.0'
 
     //Coil for Downloading Image on Coroutine Scope
     implementation "io.coil-kt:coil:1.2.1"

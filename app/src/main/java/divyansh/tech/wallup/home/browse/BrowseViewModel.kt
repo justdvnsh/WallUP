@@ -6,6 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import divyansh.tech.wallup.common.CommonViewModel
 import divyansh.tech.wallup.home.browse.datamodel.BrowseResponseModel
 import divyansh.tech.wallup.home.browse.source.BrowseDataSource
+import divyansh.tech.wallup.utils.Event
 import divyansh.tech.wallup.utils.Result
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
@@ -19,6 +20,9 @@ class BrowseViewModel @Inject constructor(
 
     private val _popularWallpapersLiveData: MutableLiveData<ArrayList<BrowseResponseModel>> = MutableLiveData()
     val popularWallpapersLiveData get() = _popularWallpapersLiveData
+
+    private val _loading: MutableLiveData<Boolean> = MutableLiveData()
+    val loadingLiveData get() = _loading
 
     private val _list: ArrayList<BrowseResponseModel> = arrayListOf()
 
@@ -46,11 +50,13 @@ class BrowseViewModel @Inject constructor(
     }
 
     fun getWallpaperDetails(url: String)  = viewModelScope.launch(Dispatchers.IO) {
+        _loading.postValue(true)
         val response = repo.getWallpaperDetails(url)
         response.collect {
             if (it is Result.Success) {
                 Timber.e("URL IS HERE -> ${it.data}")
                 // launching in UI thread since event data cannot be set from background thread
+                _loading.postValue(false)
                 GlobalScope.launch(Dispatchers.Main) {
                     val action = BrowseFragmentDirections.actionBrowseFragment2ToWallpaperDetailFragment(it.data)
                     changeNavigation(action)
