@@ -1,4 +1,4 @@
-package divyansh.tech.wallup.home.wallpaperDetail
+ package divyansh.tech.wallup.home.wallpaperDetail
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable

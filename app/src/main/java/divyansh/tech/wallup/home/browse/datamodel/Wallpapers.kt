@@ -13,13 +13,13 @@ data class Categories(
     val imageUrl: String,
     val categoryUrl: String,
     val noOfWallpapers: String
-)
+): Serializable
 
 data class PopularTags(
     val name: String,
     val url: String,
     val noOfWallpapers: String
-)
+): Serializable
 
 data class Colors(
     val color: Int

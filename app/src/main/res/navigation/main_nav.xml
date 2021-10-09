@@ -11,6 +11,12 @@
         <action
             android:id="@+id/action_browseFragment2_to_wallpaperDetailFragment"
             app:destination="@id/wallpaperDetailFragment" />
+        <action
+            android:id="@+id/action_browseFragment2_to_featuredCategoriesFragment"
+            app:destination="@id/featuredCategoriesFragment" />
+        <action
+            android:id="@+id/action_browseFragment2_to_popularTagsFragment"
+            app:destination="@id/popularTagsFragment" />
     </fragment>
     <fragment
         android:id="@+id/downloadedFragment2"
@@ -30,5 +36,27 @@
         <argument
             android:name="url"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/featuredCategoriesFragment"
+        android:name="divyansh.tech.wallup.home.browse.screens.featuredCategories.FeaturedCategoriesFragment"
+        android:label="FeaturedCategoriesFragment" >
+        <argument
+            android:name="category"
+            app:argType="divyansh.tech.wallup.home.browse.datamodel.Categories" />
+        <action
+            android:id="@+id/action_featuredCategoriesFragment_to_wallpaperDetailFragment"
+            app:destination="@id/wallpaperDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/popularTagsFragment"
+        android:name="divyansh.tech.wallup.home.browse.screens.popularTags.PopularTagsFragment"
+        android:label="PopularTagsFragment" >
+        <argument
+            android:name="tag"
+            app:argType="divyansh.tech.wallup.home.browse.datamodel.PopularTags" />
+        <action
+            android:id="@+id/action_popularTagsFragment_to_wallpaperDetailFragment"
+            app:destination="@id/wallpaperDetailFragment" />
     </fragment>
 </navigation>

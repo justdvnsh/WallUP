@@ -6,12 +6,19 @@
             name="tag"
             type="divyansh.tech.wallup.home.browse.datamodel.PopularTags"
             />
+
+        <variable
+            name="tagCallback"
+            type="divyansh.tech.wallup.common.BrowseCallbacks"
+            />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_tag_res"
-        android:layout_margin="@dimen/spacing_minimum_4dp">
+        android:layout_margin="@dimen/spacing_minimum_4dp"
+        android:onClick="@{() -> tagCallback.onPopularTagsClicked(tag)}"
+        >
 
         <TextView
             android:layout_height="match_parent"

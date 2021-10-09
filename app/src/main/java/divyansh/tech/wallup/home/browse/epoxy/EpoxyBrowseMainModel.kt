@@ -48,8 +48,12 @@ abstract class EpoxyRecyclerCategory(): DataBindingEpoxyModel() {
     @EpoxyAttribute
     lateinit var category: Categories
 
+    @EpoxyAttribute
+    lateinit var callback: BrowseCallbacks
+
     override fun setDataBindingVariables(binding: ViewDataBinding) {
         binding.setVariable(BR.category, category)
+        binding.setVariable(BR.catCallback, callback)
     }
 }
 
@@ -59,8 +63,12 @@ abstract class EpoxyFeaturedWallpaper(): DataBindingEpoxyModel() {
     @EpoxyAttribute
     lateinit var featuredWallpaper: Wallpapers
 
+    @EpoxyAttribute
+    lateinit var callback: BrowseCallbacks
+
     override fun setDataBindingVariables(binding: ViewDataBinding) {
         binding.setVariable(BR.featuredWallpaper, featuredWallpaper)
+        binding.setVariable(BR.callback, callback)
     }
 }
 

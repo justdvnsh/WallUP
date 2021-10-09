@@ -7,11 +7,16 @@
             name="category"
             type="divyansh.tech.wallup.home.browse.datamodel.Categories"
             />
+        <variable
+            name="catCallback"
+            type="divyansh.tech.wallup.common.BrowseCallbacks"
+            />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:padding="@dimen/spacing_very_small_8dp"
+        android:onClick="@{() -> catCallback.onFeaturedCategoriesClick(category)}"
         >
 
         <com.google.android.material.card.MaterialCardView

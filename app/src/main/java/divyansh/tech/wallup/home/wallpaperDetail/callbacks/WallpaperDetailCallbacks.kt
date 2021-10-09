@@ -8,9 +8,9 @@ import divyansh.tech.wallup.home.wallpaperDetail.WallpaperDetailViewModel
 
 class WallpaperDetailCallbacks(
     private val viewModel: WallpaperDetailViewModel
-): WallpaperCallbacks {
+) {
 
-    override fun onWallpaperClick(wallpaper: Wallpapers) {
+  fun onWallpaperClick(wallpaper: Wallpapers) {
         val action = WallpaperDetailFragmentDirections.actionWallpaperDetailFragmentSelf(wallpaper.imageUrl)
         viewModel.changeNavigation(action)
     }

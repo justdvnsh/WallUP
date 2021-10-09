@@ -59,6 +59,7 @@ class EpoxyBrowseController(
                 EpoxyTagItemModel_()
                     .id(it.hashCode())
                     .tag(it)
+                    .callback(callback)
             )
         }
 
@@ -86,6 +87,7 @@ class EpoxyBrowseController(
                 EpoxyTagItemModel_()
                     .id(it.hashCode())
                     .tag(it)
+                    .callback(callback)
             )
         }
 
@@ -113,6 +115,7 @@ class EpoxyBrowseController(
                 EpoxyTagItemModel_()
                     .id(it.hashCode())
                     .tag(it)
+                    .callback(callback)
             )
         }
 
@@ -141,6 +144,7 @@ class EpoxyBrowseController(
                 EpoxyRecyclerCategory_()
                     .id(it.categoryUrl)
                     .category(it)
+                    .callback(callback)
             )
         }
 
@@ -163,6 +167,7 @@ class EpoxyBrowseController(
             epoxyFeaturedWallpaper {
                 id(it.imageUrl)
                 featuredWallpaper(it)
+                callback(callback)
                 spanSizeOverride { totalSpanCount, _, _ ->  totalSpanCount}
             }
         }
