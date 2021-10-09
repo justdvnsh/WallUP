@@ -38,8 +38,9 @@ class BrowseFragmentDeserializer {
                 val list = ArrayList<BrowseResponseModel>()
                 val jsoup = Jsoup.parse(response)
                 val featuredWallpaper = jsoup.getElementById("featured_container").select("a").first()
+                val item = featuredWallpaper.attr("href").split("/")
                 val model = Wallpapers(
-                    wallpaperUrl = featuredWallpaper.attr("href"),
+                    wallpaperUrl = item[item.lastIndex],
                     imageUrl = featuredWallpaper.select("img").attr("src")
                 )
                 Timber.e("FEATURED WALL -> $featuredWallpaper")

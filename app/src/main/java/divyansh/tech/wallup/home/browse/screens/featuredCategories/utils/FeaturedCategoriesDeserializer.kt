@@ -22,7 +22,6 @@ class FeaturedCategoriesDeserializer {
                         )
                     )
                 }
-                Timber.e("ITEM -> $list")
                 Result.Success(list)
             } catch (e: Exception) {
                 Result.Error(CouldNotParseException("Somethign went wrong"))

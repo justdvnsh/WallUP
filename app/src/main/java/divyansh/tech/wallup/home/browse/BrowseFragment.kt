@@ -17,6 +17,7 @@ import divyansh.tech.wallup.R
 import divyansh.tech.wallup.databinding.FragmentBrowseBinding
 import divyansh.tech.wallup.common.BrowseCallbacks
 import divyansh.tech.wallup.home.browse.epoxy.EpoxyBrowseController
+import divyansh.tech.wallup.utils.CustomDialog.Companion.createDialog
 import divyansh.tech.wallup.utils.EventObserver
 import timber.log.Timber
 
@@ -44,17 +45,9 @@ class BrowseFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        buildDialog()
+        _dialog = createDialog(requireContext(), requireActivity())
         setupRecyclerView()
         setupObservers()
-    }
-
-    private fun buildDialog() {
-        val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
-        val view = requireActivity().layoutInflater.inflate(R.layout.loading_dialog, null)
-        builder.setView(view)
-        builder.setCancelable(false)
-        _dialog = builder.create()
     }
 
     private fun setupRecyclerView() {
