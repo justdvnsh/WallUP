@@ -17,18 +17,23 @@
         android:visibility="invisible"
         >
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
+        <divyansh.tech.twodscrollablezoomablelibrary.TwoDScrollableZoomableView
             android:layout_height="match_parent"
-            android:background="@null"
-            android:clickable="false"
-            android:focusable="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/imageBackground"
-            android:scaleType="centerCrop"
-            />
+            android:layout_width="match_parent"
+            >
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:focusable="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/imageBackground"
+                android:scaleType="centerCrop"
+                />
+        </divyansh.tech.twodscrollablezoomablelibrary.TwoDScrollableZoomableView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_height="match_parent"
