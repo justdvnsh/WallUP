@@ -6,6 +6,7 @@
     <color name="colorPrimaryDark">#A5D6A7</color>
     <color name="colorPrimaryNight">#00643d</color>
     <color name="cardBackground">@color/nightModeCards</color>
+    <color name="secondary_background">#212121</color>
     <!-- Article Fragment Colors -->
 
     <color  name="bottom_icon_unselected">#bebebe</color>

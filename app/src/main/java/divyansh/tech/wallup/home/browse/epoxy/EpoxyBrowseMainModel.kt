@@ -49,7 +49,7 @@ abstract class EpoxyRecyclerCategory(): DataBindingEpoxyModel() {
     lateinit var category: Categories
 
     @EpoxyAttribute
-    lateinit var callback: BrowseCallbacks
+    lateinit var callback: WallpaperCallbacks
 
     override fun setDataBindingVariables(binding: ViewDataBinding) {
         binding.setVariable(BR.category, category)

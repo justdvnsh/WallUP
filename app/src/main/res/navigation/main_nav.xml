@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_browseFragment2_to_popularTagsFragment"
             app:destination="@id/popularTagsFragment" />
+        <action
+            android:id="@+id/action_browseFragment2_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/downloadedFragment2"
@@ -57,6 +60,17 @@
             app:argType="divyansh.tech.wallup.home.browse.datamodel.PopularTags" />
         <action
             android:id="@+id/action_popularTagsFragment_to_wallpaperDetailFragment"
+            app:destination="@id/wallpaperDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="divyansh.tech.wallup.home.browse.screens.search.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_featuredCategoriesFragment"
+            app:destination="@id/featuredCategoriesFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_wallpaperDetailFragment"
             app:destination="@id/wallpaperDetailFragment" />
     </fragment>
 </navigation>

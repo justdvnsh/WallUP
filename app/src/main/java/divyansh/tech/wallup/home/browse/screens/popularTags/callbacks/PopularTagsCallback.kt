@@ -1,6 +1,7 @@
 package divyansh.tech.wallup.home.browse.screens.popularTags.callbacks
 
 import divyansh.tech.wallup.common.WallpaperCallbacks
+import divyansh.tech.wallup.home.browse.datamodel.Categories
 import divyansh.tech.wallup.home.browse.datamodel.Wallpapers
 import divyansh.tech.wallup.home.browse.screens.popularTags.PopularTagsViewModel
 
@@ -9,5 +10,9 @@ class PopularTagsCallback(
 ): WallpaperCallbacks {
     override fun onWallpaperClick(wallpaper: Wallpapers) {
         viewModel.getWallpaperDetails(wallpaper.wallpaperUrl)
+    }
+
+    override fun onFeaturedCategoriesClick(cat: Categories) {
+        // no categories here.
     }
 }

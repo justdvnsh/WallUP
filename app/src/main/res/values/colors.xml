@@ -9,6 +9,7 @@
     <color name="Black">#323232</color>
     <color name="taxonomy">#00AA67</color>
     <color name="taxonomyText">#ffffff</color>
+    <color name="secondary_background">#EAEAEB</color>
 
     <!--  Don't delete it as some of the previous fields are dependent on it-->
     <!-- New Colors -->

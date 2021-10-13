@@ -18,15 +18,26 @@
         android:onClick="@{() -> callback.onWallpaperClick(featuredWallpaper)}"
         >
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_height="300dp"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:cardCornerRadius="8dp"
+            app:cardUseCompatPadding="true"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            image="@{featuredWallpaper.imageUrl}"
-            android:scaleType="fitXY"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/placePic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                image="@{featuredWallpaper.imageUrl}"/>
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

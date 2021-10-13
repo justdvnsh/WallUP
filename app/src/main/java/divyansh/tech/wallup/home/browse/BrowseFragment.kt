@@ -46,8 +46,16 @@ class BrowseFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _dialog = createDialog(requireContext(), requireActivity())
+        setupListeners()
         setupRecyclerView()
         setupObservers()
+    }
+
+    private fun setupListeners() {
+        _binding.search.setOnClickListener {
+            val action = BrowseFragmentDirections.actionBrowseFragment2ToSearchFragment()
+            viewModel.changeNavigation(action)
+        }
     }
 
     private fun setupRecyclerView() {

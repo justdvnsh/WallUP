@@ -9,7 +9,7 @@
             />
         <variable
             name="catCallback"
-            type="divyansh.tech.wallup.common.BrowseCallbacks"
+            type="divyansh.tech.wallup.common.WallpaperCallbacks"
             />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout

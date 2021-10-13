@@ -14,7 +14,7 @@ class BrowseCallbacks(
         viewModel.getWallpaperDetails(wallpaper.wallpaperUrl)
     }
 
-    fun onFeaturedCategoriesClick(cat: Categories) {
+    override fun onFeaturedCategoriesClick(cat: Categories) {
         val action = BrowseFragmentDirections.actionBrowseFragment2ToFeaturedCategoriesFragment(cat)
         viewModel.changeNavigation(action)
     }

@@ -2,4 +2,6 @@
     <string name="app_name">WallUP</string>
     <string name="wallpapers">Wallpapers</string>
     <string name="set_as_wallpaper">Set as wallpaper</string>
+    <string name="search_wallpapers">Search Wallpapers</string>
+    <string name="no_results_for_your_search">No Results for your search</string>
 </resources>

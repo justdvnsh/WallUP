@@ -1,6 +1,7 @@
 package divyansh.tech.wallup.home.browse.screens.featuredCategories.callbacks
 
 import divyansh.tech.wallup.common.WallpaperCallbacks
+import divyansh.tech.wallup.home.browse.datamodel.Categories
 import divyansh.tech.wallup.home.browse.datamodel.Wallpapers
 import divyansh.tech.wallup.home.browse.screens.featuredCategories.FeaturedCategoriesFragment
 import divyansh.tech.wallup.home.browse.screens.featuredCategories.FeaturedCategoriesFragmentDirections
@@ -12,5 +13,9 @@ class FeaturedCategoryCallbacks(
     override fun onWallpaperClick(wallpaper: Wallpapers) {
         val action = FeaturedCategoriesFragmentDirections.actionFeaturedCategoriesFragmentToWallpaperDetailFragment(wallpaper.imageUrl)
         viewModel.changeNavigation(action)
+    }
+
+    override fun onFeaturedCategoriesClick(cat: Categories) {
+        // no categories here
     }
 }
