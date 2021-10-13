@@ -56,8 +56,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 The project aims to solve a personal problem of downloading good quality wallpapers in my phone.   
 
 Why a wallpaper app ? Here's why:
