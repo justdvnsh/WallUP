@@ -11,8 +11,6 @@ import divyansh.tech.wallup.BR
 import divyansh.tech.wallup.R
 import divyansh.tech.wallup.common.BrowseCallbacks
 import divyansh.tech.wallup.home.browse.datamodel.PopularTags
-import divyansh.tech.wallup.home.wallpaperDetail.dataModels.Resolution
-import divyansh.tech.wallup.home.wallpaperDetail.dataModels.Tags
 
 @EpoxyModelClass(layout = R.layout.tag_item_view)
 abstract class EpoxyTagItemModel: DataBindingEpoxyModel() {
@@ -25,16 +23,6 @@ abstract class EpoxyTagItemModel: DataBindingEpoxyModel() {
     override fun setDataBindingVariables(binding: ViewDataBinding) {
         binding.setVariable(BR.tag, tag)
         binding.setVariable(BR.tagCallback, callback)
-    }
-}
-
-@EpoxyModelClass(layout = R.layout.res_item_view)
-abstract class EpoxyResolutionItemModel: DataBindingEpoxyModel() {
-    @EpoxyAttribute
-    lateinit var resolution: Resolution
-
-    override fun setDataBindingVariables(binding: ViewDataBinding) {
-        binding.setVariable(BR.res, resolution)
     }
 }
 

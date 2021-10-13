@@ -24,7 +24,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
+                android:adjustViewBounds="true"
                 android:clickable="false"
                 android:focusable="false"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,23 +42,40 @@
             android:padding="10dp"
             >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/saveToGallery"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Save to gallery"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_baseline_downloading_24"
                 android:background="@drawable/bottom_nav_bg"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/favorite"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:background="@drawable/bottom_nav_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 />
 
             <Button
                 android:id="@+id/setAsWallpaper"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:text="@string/set_as_wallpaper"
+                android:layout_margin="10dp"
                 android:background="@drawable/bottom_nav_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/favorite"
+                app:layout_constraintEnd_toStartOf="@id/saveToGallery"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
