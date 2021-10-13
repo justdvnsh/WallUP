@@ -12,20 +12,20 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="./docs/app_icon.jpg" alt="Logo" width="80" height="80">
+    <img src="./docs/app-icon.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">WallUp</h3>
 
   <p align="center">
-    An awesome app to download wallpapers for your phone. No ads ! I promise.
+    An awesome app to download wallpapers for your phone. No ads ! I promise. 
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/justdvnsh/AnimeClassroom/issues">Report Bug</a>
+    <a href="https://github.com/justdvnsh/WallUP/issues">Report Bug</a>
     ·
-    <a href="https://github.com/justdvnsh/AnimeClassroom/issues">Request Feature</a>
+    <a href="https://github.com/justdvnsh/WallUP/issues">Request Feature</a>
   </p>
 </div>
 
@@ -58,18 +58,18 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-The project aims to solve a personal problem of watching anime. This app helps you watch and download anime without any ads. Plus it also lets you read and save mangas into the app itself. It parses the animes online from the web in real-time to provide you with a seamless watching experience. 
+The project aims to solve a personal problem of downloading good quality wallpapers in my phone.   
 
-Why an anime app ? Here's why:
-* Netflix contains anime's, but there is no denying that the list of anime's are very limited in Netflix.
-* You can watch anime online, but you have to suffer with the ads.
-* You can easily download the animes and also read manga in your phone itself. 
+Why a wallpaper app ? Here's why:
+* There are already a lot of wallpaper apps, but the thing is that, they are optimized to show you the wallpapers only for your phone, i.e. they will only find the wallpapers of the screen resolution of your phone. So to download higher quality wallpapers you'd anyhow need to download from your browser. Now, this app can help you solve that feature as well.
+* Most of the wallpaper apps, show you the wallpaper which are curated by themselves or using any API. This app parses the a lot of resources to provide you with the highest quality unique wallpapers.
+* There are no ads. 
 
 __WARNING: THIS PROJECT IS STILL IN HEAVY DEVELOPMENT, THEREFORE YOU MAY ENCOUNTER BUGS. You can OPEN the ISSUE on GITHUB REPOSITORY.__
 
 __NEW ISSUES WILL BE ADDED REGULARLY__ 
   
-__Do not PUT ANIMECLASSROOM OR ANY FORK OF IT INTO GOOGLE PLAYSTORE or Any other Store. It may VIOLATE THEIR TERMS AND CONDITIONS or you may encounter legal obligations.__
+__DO NOT PUT WALLUP OR ANY FORK OF IT INTO GOOGLE PLAYSTORE or Any other Store. It may VIOLATE THEIR TERMS AND CONDITIONS or you may encounter legal obligations.__
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -82,38 +82,20 @@ Simply fork the repo. Clone it into your machine and let AndroidStudio handle th
 <!-- ROADMAP -->
 ## Roadmap for Version 1 release of the app.
 
-- [x] Add README
-- [x] Setup a clean architecture for the app
-- [x] Parse Animes
-    - [x] Parse Anime Details
-        - Create a new modern UI for the Anime Detail fragment
-    - [x] Add Anime Search option
-        - Handle the errors when anime not found
+- [x] ~Add README~
+- [x] ~Setup a clean architecture for the app~
+- [x] Parse Wallpapers
+    - [x] ~Parse Wallpaper Details~
+        - ~Create a new modern UI for the Wallpaper Detail fragment~
+    - [x] ~Add Wallpaper Search option~
+        - Handle the errors when wallpaper or collection not found
     - Handle the network error (When not connected to internet)
     - Handle cases when the unwanted errors occur
-        - Could Not Parse Exception
+        - ~Could Not Parse Exception~
         - Could Not Load Exception
     - Make the background function calls more efficient.
-    - Need a better architecture for video player
-        - handle audio focus change
-        - add PIP mode for the player
-        - handle speed changes
-        - handle quality changes 
-- [x] Parse Mangas
-    - Setup the home page for mangas 
-    - Parse Manga details
-        - Create a modern UI for the Manga detail page
-        - Setup viewpager based manga player to read manga like a book
-    - Handle the network error (When not connected to internet)
-    - Handle cases when the unwanted errors occur
-        - Could Not Parse Exception
-        - Could Not Load Exception
-    - Need a better architecture for manga player
-            - handle viewpager
-            - handle night light support
-            - handle quality changes 
 - [x] Setup Favorites page
-    - Make a viewpager to display all the saved animes in one tab, while all the saved mangas in the other.
+    - Make a viewpager to display all the saved wallpapers in one tab, while all the saved collections in the other.
     - setup room to save the details
     - make a modern motion layout based UI for the page.
 - [x] Setup Settings page
@@ -128,7 +110,7 @@ Simply fork the repo. Clone it into your machine and let AndroidStudio handle th
     - load glide components in a background thread.
 - A new modern color scheme for the app.
 
-See the [open issues](https://github.com/justdvnsh/AnimeClassroom/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/justdvnsh/WallUP/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -170,7 +152,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Divyansh Dwivedi - [@justdvnsh](https://linkedin.com/in/justdvnsh) - justdvnsh2208@gmail.com
 
-Project Link: [https://github.com/justdvnsh/AnimeClassroom](https://github.com/justdvnsh/AnimeClassroom)
+Project Link: [https://github.com/justdvnsh/WallUP](https://github.com/justdvnsh/WallUP)
 
 Join the Discussion at: [![Slack][slack-shield]][slack-url]
 
