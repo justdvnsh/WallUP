@@ -4,4 +4,13 @@
     <string name="set_as_wallpaper">Set as wallpaper</string>
     <string name="search_wallpapers">Search Wallpapers</string>
     <string name="no_results_for_your_search">No Results for your search</string>
+    <string name="title_about_us">About Us</string>
+    <string name="message_about_us">Why a wallpaper app ? Here\'s why:\n\n\* There are already a lot of wallpaper apps,
+        but they are optimized to show you the wallpapers only for your phone, i.e. they will only
+        find the wallpapers of the screen resolution of your phone. So to download higher quality wallpapers you\'d
+        anyhow need to download from your browser.\n\n\* Most of
+        the wallpaper apps show you the wallpaper which are curated by themselves or using any API. This app parses
+        the a lot of resources to provide you with the highest quality unique wallpapers.\n\n\* There are no ads.
+    </string>
+    <string name="ok_button">OK</string>
 </resources>
