@@ -1,5 +1,7 @@
 package divyansh.tech.wallup.home.settings
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,18 +27,27 @@ class SettingsFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupAboutUsButton()
+        setUpListeners()
+    }
+
+    private fun setUpListeners() {
+        _binding.aboutUsButton.setOnClickListener { setupAboutUsButton() }
+        _binding.supportUsButton.setOnClickListener { supportUsButton() }
+    }
+
+    private fun supportUsButton() {
+        val uri = Uri.parse("https://github.com/justdvnsh/WallUP")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 
     private fun setupAboutUsButton() {
-        _binding.aboutUsButton.setOnClickListener {
-            AlertDialog.Builder(requireContext())
-                .setTitle(R.string.title_about_us)
-                .setMessage(R.string.message_about_us)
-                .setPositiveButton(R.string.ok_button) { dialog, _ ->
-                    dialog.dismiss()
-                }
-                .show()
-        }
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.title_about_us)
+            .setMessage(R.string.message_about_us)
+            .setPositiveButton(R.string.ok_button) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 }
