@@ -7,11 +7,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/label_settings"
+        <Button
+            android:id="@+id/theme_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SETTINGS"
+            android:text="@string/change_theme"
             app:layout_constraintBottom_toTopOf="@id/about_us_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_settings" />
+            app:layout_constraintTop_toBottomOf="@id/theme_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
