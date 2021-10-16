@@ -12,6 +12,15 @@
         the wallpaper apps show you the wallpaper which are curated by themselves or using any API. This app parses
         the a lot of resources to provide you with the highest quality unique wallpapers.\n\n\* There are no ads.
     </string>
+
+
+    <string name="change_theme">Change Theme</string>
+    <string-array name="ui_mode">
+        <item>Light Mode</item>
+        <item>Night Mode</item>
+        <item>System</item>
+    </string-array>
+
     <string name="ok_button">OK</string>
     <string name="settings">Settings</string>
     <string name="support_us">Support Us</string>
