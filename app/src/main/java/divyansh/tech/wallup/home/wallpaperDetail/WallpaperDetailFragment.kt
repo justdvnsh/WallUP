@@ -1,6 +1,5 @@
- package divyansh.tech.wallup.home.wallpaperDetail
+package divyansh.tech.wallup.home.wallpaperDetail
 
-import android.R.attr.bitmap
 import android.app.WallpaperManager
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
@@ -12,9 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -22,6 +19,8 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import divyansh.tech.wallup.common.CommonFragment
+import divyansh.tech.wallup.common.CommonViewModel
 import divyansh.tech.wallup.databinding.FragmentWallpaperDetailsBinding
 import divyansh.tech.wallup.utils.CustomDialog
 import divyansh.tech.wallup.utils.EventObserver
@@ -29,8 +28,8 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 
 
- @AndroidEntryPoint
-class WallpaperDetailFragment: Fragment() {
+@AndroidEntryPoint
+class WallpaperDetailFragment : CommonFragment() {
 
     private lateinit var _binding: FragmentWallpaperDetailsBinding
     val binding get() = _binding
@@ -38,7 +37,6 @@ class WallpaperDetailFragment: Fragment() {
     private val viewModel by viewModels<WallpaperDetailViewModel>()
 
     private val args by navArgs<WallpaperDetailFragmentArgs>()
-    private lateinit var _dialog: AlertDialog
 
     private lateinit var _wallpaper: Bitmap
 
@@ -55,11 +53,12 @@ class WallpaperDetailFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _dialog = CustomDialog.createDialog(requireContext(), requireActivity())
-        _dialog.show()
+        showLoading()
         setupObservers()
         setupImage()
     }
+
+    override fun getCommonViewModel(): CommonViewModel = viewModel
 
     private fun setupFullScreen() {
         requireActivity().apply {
@@ -74,9 +73,9 @@ class WallpaperDetailFragment: Fragment() {
         Glide.with(this)
             .asBitmap()
             .load(args.url)
-            .into(object: CustomTarget<Bitmap>(){
+            .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                    _dialog.dismiss()
+                    hideLoading()
                     _wallpaper = resource
                     binding.rootView.visibility = View.VISIBLE
                     binding.imageBackground.setImageBitmap(resource)
@@ -105,8 +104,9 @@ class WallpaperDetailFragment: Fragment() {
             MediaStore.Images.Media.insertImage(
                 requireActivity().contentResolver,
                 _wallpaper,
-                "yourTitle" ,
-                "yourDescription");
+                "yourTitle",
+                "yourDescription"
+            );
             Snackbar.make(requireView(), "Saved to gallery", Snackbar.LENGTH_SHORT).show()
         }
     }
