@@ -38,6 +38,13 @@ class SettingsFragment: Fragment() {
         _binding.aboutUsButton.setOnClickListener { setupAboutUsButton() }
         _binding.supportUsButton.setOnClickListener { supportUsButton() }
         setUpThemeChange()
+        _binding.talkToUsButton.setOnClickListener { talkToUsButton() }
+    }
+
+    private fun talkToUsButton() {
+        val uri = Uri.parse("https://join.slack.com/t/animeclassroom/shared_invite/zt-wut0t5mp-Y4kF6OGyxLBpyNM0eU6psw")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 
     private fun supportUsButton() {
