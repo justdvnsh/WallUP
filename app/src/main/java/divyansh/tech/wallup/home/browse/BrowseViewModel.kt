@@ -6,23 +6,22 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import divyansh.tech.wallup.common.CommonViewModel
 import divyansh.tech.wallup.home.browse.datamodel.BrowseResponseModel
 import divyansh.tech.wallup.home.browse.source.BrowseDataSource
-import divyansh.tech.wallup.utils.Event
 import divyansh.tech.wallup.utils.Result
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class BrowseViewModel @Inject constructor(
     private val repo: BrowseDataSource
-): CommonViewModel() {
+) : CommonViewModel() {
 
-    private val _popularWallpapersLiveData: MutableLiveData<ArrayList<BrowseResponseModel>> = MutableLiveData()
+    private val _popularWallpapersLiveData: MutableLiveData<ArrayList<BrowseResponseModel>> =
+        MutableLiveData()
     val popularWallpapersLiveData get() = _popularWallpapersLiveData
-
-    private val _loading: MutableLiveData<Boolean> = MutableLiveData()
-    val loadingLiveData get() = _loading
 
     private val _list: ArrayList<BrowseResponseModel> = arrayListOf()
 
@@ -44,21 +43,21 @@ class BrowseViewModel @Inject constructor(
             if (it is Result.Success) {
                 _list.add(it.data as BrowseResponseModel)
                 _popularWallpapersLiveData.postValue(_list)
-            }
-            else _popularWallpapersLiveData.postValue(_list)
-            }
+            } else _popularWallpapersLiveData.postValue(_list)
+        }
     }
 
-    fun getWallpaperDetails(url: String)  = viewModelScope.launch(Dispatchers.IO) {
-        _loading.postValue(true)
+    fun getWallpaperDetails(url: String) = viewModelScope.launch(Dispatchers.IO) {
+        showLoading()
         val response = repo.getWallpaperDetails(url)
         response.collect {
             if (it is Result.Success) {
                 Timber.e("URL IS HERE -> ${it.data}")
                 // launching in UI thread since event data cannot be set from background thread
-                _loading.postValue(false)
+                hideLoading()
                 GlobalScope.launch(Dispatchers.Main) {
-                    val action = BrowseFragmentDirections.actionBrowseFragment2ToWallpaperDetailFragment(it.data)
+                    val action =
+                        BrowseFragmentDirections.actionBrowseFragment2ToWallpaperDetailFragment(it.data)
                     changeNavigation(action)
                 }
             } else Timber.e("ERROR -> $it")

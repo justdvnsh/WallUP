@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -12,13 +11,13 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import divyansh.tech.wallup.common.CommonFragment
+import divyansh.tech.wallup.common.CommonViewModel
 import divyansh.tech.wallup.databinding.FragmentSearchBinding
 import divyansh.tech.wallup.home.browse.screens.search.callbacks.SearchCallbacks
 import divyansh.tech.wallup.home.browse.screens.search.epoxy.SearchController
@@ -26,7 +25,7 @@ import divyansh.tech.wallup.utils.CustomDialog
 import divyansh.tech.wallup.utils.EventObserver
 
 @AndroidEntryPoint
-class SearchFragment: Fragment() {
+class SearchFragment : CommonFragment() {
 
     private lateinit var binding: FragmentSearchBinding
     private val viewModel by viewModels<SearchViewModel>()
@@ -34,9 +33,11 @@ class SearchFragment: Fragment() {
         SearchController(SearchCallbacks(viewModel))
     }
 
-    private lateinit var  _dialog: AlertDialog
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentSearchBinding.inflate(
             inflater,
             container,
@@ -47,12 +48,13 @@ class SearchFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _dialog = CustomDialog.createDialog(requireContext(), requireActivity())
         setupEditText()
         setupClickListeners()
         setupRecyclerView()
         setupObservers()
     }
+
+    override fun getCommonViewModel(): CommonViewModel = viewModel
 
     private fun setupEditText() {
         binding.searchEditText.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
@@ -84,7 +86,6 @@ class SearchFragment: Fragment() {
 
 
     private fun setupObservers() {
-
         viewModel.searchResultLiveData.observe(
             viewLifecycleOwner,
             Observer {
@@ -92,14 +93,6 @@ class SearchFragment: Fragment() {
                     binding.searchRecyclerView.visibility = View.GONE
                     binding.noResultsView.visibility = View.VISIBLE
                 } else searchController.setData(it)
-            }
-        )
-
-        viewModel.loadingLiveData.observe(
-            viewLifecycleOwner,
-            Observer {
-                if (it) _dialog.show()
-                else _dialog.dismiss()
             }
         )
 
