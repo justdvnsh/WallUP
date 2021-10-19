@@ -81,6 +81,7 @@ class WallpaperDetailFragment : CommonFragment() {
                     binding.imageBackground.setImageBitmap(resource)
                     setupWallpaperButton()
                     setupSaveToGallery()
+                    setupFavoriteButton()
                 }
 
                 override fun onLoadCleared(placeholder: Drawable?) {}
@@ -111,7 +112,21 @@ class WallpaperDetailFragment : CommonFragment() {
         }
     }
 
+    private fun setupFavoriteButton() {
+        binding.favorite.setOnClickListener {
+            viewModel.saveWallpaper(args.url)
+        }
+    }
+
     private fun setupObservers() {
+
+        viewModel.favoriteLiveData.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                Snackbar.make(requireView(), "Wallpaper Saved", Snackbar.LENGTH_SHORT).show()
+            }
+        )
+
         viewModel.navigation.observe(
             viewLifecycleOwner,
             EventObserver {
