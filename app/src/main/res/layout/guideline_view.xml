@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/spacing_very_small"
+        app:layout_constraintGuide_begin="@dimen/spacing_very_small_8dp"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="@dimen/spacing_very_small"
+        app:layout_constraintGuide_end="@dimen/spacing_very_small_8dp"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/spacing_small"
+        app:layout_constraintGuide_begin="@dimen/spacing_small_16dp"
         app:layout_constraintStart_toStartOf="parent"
         />
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/spacing_small"
+        app:layout_constraintGuide_end="@dimen/spacing_small_16dp"
         app:layout_constraintStart_toStartOf="parent"
         />
 
