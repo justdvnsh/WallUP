@@ -27,7 +27,7 @@ class ApplicationModule {
     fun providesRetrofitInstance(): Retrofit =
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
+            .baseUrl("https://api.unsplash.com/")
             .build()
 
     @Provides

@@ -1,6 +1,5 @@
 package divyansh.tech.wallup
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -9,6 +8,7 @@ import android.os.Looper
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
+import divyansh.tech.wallup.onboarding.OnBoardingActivity
 import divyansh.tech.wallup.utils.Constants.Companion.IS_FIRST_TIME
 import javax.inject.Inject
 
