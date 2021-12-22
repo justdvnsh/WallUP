@@ -201,4 +201,8 @@
     <color name="quiz_header_background">#F8F8F9</color>
 
 
+    <color name="primaryTextColor">#11316</color>
+    <color name="secondaryTextColor">#F0F0F1</color>
+    <color name="accentButtonAndSelectedColor">#214CBA</color>
+
 </resources>
