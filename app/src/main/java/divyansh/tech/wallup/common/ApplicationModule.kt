@@ -12,8 +12,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import divyansh.tech.wallup.common.database.WallpaperDatabase
 import divyansh.tech.wallup.utils.Constants.Companion.BASE_URL
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Header
 import javax.inject.Singleton
 
 private const val USER_PREF = "user_prefs"
@@ -28,6 +30,7 @@ class ApplicationModule {
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://api.unsplash.com/")
+            .client(OkHttpClient.Builder().addInterceptor(HeaderInterceptor()).build())
             .build()
 
     @Provides

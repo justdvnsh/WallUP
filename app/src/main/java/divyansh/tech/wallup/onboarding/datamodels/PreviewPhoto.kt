@@ -11,7 +11,5 @@ data class PreviewPhoto(
     @SerializedName("id")
     val id: String, // uluH5a0sRdw
     @SerializedName("updated_at")
-    val updatedAt: String, // 2021-12-22T04:21:51-05:00
-    @SerializedName("urls")
-    val urls: UrlsX
+    val updatedAt: String
 )

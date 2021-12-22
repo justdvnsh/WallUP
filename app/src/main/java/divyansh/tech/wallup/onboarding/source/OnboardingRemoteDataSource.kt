@@ -17,18 +17,22 @@ class OnboardingRemoteDataSource @Inject constructor(
 
     suspend fun getTopics(): Result<Topics> {
         Timber.e("REMOTE REPO -> INSIDE REMOTE REPO")
-        val response = service.gettopic()
-        Timber.e("REMOTE REPO -> $response")
-//        return if (response.isSuccessful && response.body() != null)
-//            Result.Success(response.body() as Topics)
-//        else Result.Error(Exception("Something went wrong"))
-        return Result.Error(Exception("SOEMTHIGN WENT WRONG"))
+        return try {
+            val response = service.gettopic()
+            Timber.e("REMOTE REPO -> $response")
+            if (response.isSuccessful && response.body() != null)
+                Result.Success(response.body() as Topics)
+            else Result.Error(Exception("Something went wrong"))
+        } catch (e: Exception) {
+            Timber.e("${e.localizedMessage}")
+            Result.Error(Exception("SOEMTHIGN WENT WRONG"))
+        }
     }
 
     interface OnBoardingInterface {
-        @GET("/topics/")
+        @GET("topics/")
         suspend fun gettopic(
             @Query("client_id") id: String = "tuoo-XRYx3ZcmVM4nfYt6CclnmRO8jZBlyU2CCh6uWg"
-        ): ResponseBody
+        ): Response<Topics>
     }
 }

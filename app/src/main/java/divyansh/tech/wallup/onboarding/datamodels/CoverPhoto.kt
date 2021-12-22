@@ -31,15 +31,7 @@ data class CoverPhoto(
     @SerializedName("promoted_at")
     val promotedAt: String, // 2021-12-01T05:08:01-05:00
     @SerializedName("sponsorship")
-    val sponsorship: Any, // null
-    @SerializedName("topic_submissions")
-    val topicSubmissions: TopicSubmissions,
-    @SerializedName("updated_at")
-    val updatedAt: String, // 2021-12-22T04:21:51-05:00
-    @SerializedName("urls")
-    val urls: Urls,
-    @SerializedName("user")
-    val user: User,
+    val sponsorship: Any, // 2021-12-22T04:21:51-05:00
     @SerializedName("width")
     val width: Int // 2656
 )

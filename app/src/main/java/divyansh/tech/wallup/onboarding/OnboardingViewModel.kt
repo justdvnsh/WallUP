@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OnboardingViewModel @Inject constructor(
     private val remoteRepo: OnboardingRemoteDataSource,
-    @DispatcherModule.IODispatcher private val coroutineDispatcher: CoroutineDispatcher
+    @DispatcherModule.UnconfinedDispatcher private val coroutineDispatcher: CoroutineDispatcher
 ): CommonViewModel() {
 
     private val _topicsLiveData = MutableLiveData<Topics>()
@@ -30,6 +30,7 @@ class OnboardingViewModel @Inject constructor(
         when(val response = remoteRepo.getTopics()) {
             is Result.Success -> {
                 Timber.e("ONBOARDING -> ${(response.data)}")
+                _topicsLiveData.postValue(response.data as Topics)
             }
             is Result.Error -> Timber.e("ONBOARDING -> SOMETHING WENT WRONG")
             else -> {}
