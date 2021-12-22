@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
         )
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (sharedPreferences.getBoolean(IS_FIRST_TIME, false))
+            if (sharedPreferences.getBoolean(IS_FIRST_TIME, true))
                 startActivity(Intent(this, OnBoardingActivity::class.java))
             else startActivity(Intent(this, MainActivity::class.java))
         }, 3000)

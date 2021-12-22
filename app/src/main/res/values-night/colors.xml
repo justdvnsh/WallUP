@@ -107,7 +107,7 @@
     <color name="quiz_option_text">#e5e5e5</color>
     <color name="quiz_submit_button_text">@color/courses_header</color>
 
-    <color name="secondaryTextColor">#11316</color>
-    <color name="primaryTextColor">#F0F0F1</color>
+<!--    <color name="secondaryTextColor">#11316</color>-->
+<!--    <color name="primaryTextColor">#F0F0F1</color>-->
     <color name="accentButtonAndSelectedColor">#214CBA</color>
 </resources>

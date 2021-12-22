@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import divyansh.tech.wallup.home.browse.datamodel.OfflineWallpapers
 import divyansh.tech.wallup.home.browse.datamodel.Wallpapers
 
-@Database(entities = [OfflineWallpapers::class], version = 1)
+@Database(entities = [OfflineWallpapers::class], version = 2)
 abstract class WallpaperDatabase: RoomDatabase() {
     abstract fun wallpaperDao(): WallpaperDao
 }

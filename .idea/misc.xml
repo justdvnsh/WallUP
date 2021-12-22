@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/font/poppins_semibold.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/activity_main.xml" value="0.225" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/activity_on_boarding.xml" value="0.264" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/fragment_browse.xml" value="0.225" />
