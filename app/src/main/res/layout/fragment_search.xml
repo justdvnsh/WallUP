@@ -35,7 +35,7 @@
                     android:scaleX="1.2"
                     android:scaleY="1.2"
                     android:src="@drawable/ic_arrow"
-                    app:tint="@color/articleTitle" />
+                    app:tint="@color/colorPrimary" />
 
                 <EditText
                     android:id="@+id/searchEditText"

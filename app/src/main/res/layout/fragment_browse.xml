@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:textSize="36sp"
-            android:textColor="@color/articleTitle"
+            android:textColor="@color/colorPrimary"
             android:fontFamily="sans-serif-medium"
             android:text="@string/app_name"/>
 
@@ -40,7 +40,7 @@
             android:id="@+id/shadowLayout"
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:background="@color/gfgWhite"
+            android:background="@color/colorBackground"
             android:layout_height="50dp"
             android:elevation="1dp"
             android:layout_marginTop="300dp"

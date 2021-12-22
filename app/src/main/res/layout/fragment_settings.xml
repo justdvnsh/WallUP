@@ -15,7 +15,7 @@
             android:textSize="36sp"
             android:textStyle="bold"
             android:padding="18dp"
-            android:textColor="@color/Black"
+            android:textColor="@color/colorPrimary"
             android:fontFamily="sans-serif-medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

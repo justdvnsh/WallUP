@@ -16,9 +16,77 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="@color/Black"
+            style="@style/primaryText"
+            android:layout_marginTop="@dimen/size_normal"
+            android:id="@+id/welcomeText"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeText"
+            android:layout_marginTop="@dimen/size_normal"
+            android:text="@string/welcome_text"
+            style="@style/secondaryText"
+            android:layout_marginEnd="@dimen/size_small"
+            android:layout_marginStart="@dimen/size_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:id="@+id/welcomeDesc"
+            />
+
+        <View
+            android:id="@+id/spacer"
+            android:layout_height="1dp"
+            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/size_small"
+            android:layout_marginVertical="@dimen/size_normal"
+            android:background="@color/secondaryTextColor"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/metropolis_bold"
+            android:text="@string/explorer_text"
+            app:layout_constraintTop_toBottomOf="@id/spacer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/primaryText"
+            android:textSize="22sp"
+            android:layout_marginVertical="@dimen/size_normal"
+            android:layout_marginHorizontal="@dimen/size_small"
+            android:id="@+id/explorerText"
+            android:gravity="center"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topicsRv"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/explorerText"
+            app:layout_constraintBottom_toTopOf="@id/nextBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/size_small"
+            android:layout_marginVertical="@dimen/size_normal"
+            />
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/rounded_button_filled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/next"
+            android:layout_marginVertical="@dimen/size_normal"
+            app:layout_constraintTop_toBottomOf="@id/topicsRv"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

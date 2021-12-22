@@ -14,6 +14,15 @@
     </string>
 
 
+    <string name="welcome_text">
+        We parse cool and unique wallpapers for you which you can enjoy and use for free. \n
+        Let\'s got to Explorer
+    </string>
+
+    <string name="explorer_text">
+        Let\'s see what you Like
+    </string>
+
     <string-array name="ui_mode">
         <item>Light Mode</item>
         <item>Night Mode</item>
@@ -27,4 +36,5 @@
     <string name="change_theme">Change Theme</string>
     <string name="talk_to_us">Talk To Us</string>
     <string name="welcome">Welcome</string>
+    <string name="next">Next</string>
 </resources>
