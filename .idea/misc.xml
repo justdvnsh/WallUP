@@ -11,6 +11,7 @@
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/drawable/ic_search.xml" value="0.1265625" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/drawable/ic_search_icon.xml" value="0.1265625" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/drawable/rounded_button_filled.xml" value="0.24114583333333334" />
+        <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/drawable/rounded_shape_outline.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/font/poppins_semibold.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/activity_main.xml" value="0.225" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/activity_on_boarding.xml" value="0.264" />
@@ -22,6 +23,7 @@
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/fragment_saved_wallpaper.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/fragment_search.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/fragment_settings.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/item_topics.xml" value="0.225" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/recycler_recommended_item.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/justd/AndroidStudioProjects/WallUP/app/src/main/res/layout/tag_item_view.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3463541666666667" />

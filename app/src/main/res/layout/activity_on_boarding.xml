@@ -73,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="@dimen/size_small"
-            android:layout_marginVertical="@dimen/size_normal"
+            android:layout_marginTop="@dimen/size_normal"
             />
 
         <Button
@@ -85,7 +85,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/next"
-            android:layout_marginVertical="@dimen/size_normal"
+            android:layout_marginVertical="@dimen/size_small"
             app:layout_constraintTop_toBottomOf="@id/topicsRv"
             />
 
